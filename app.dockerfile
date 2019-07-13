@@ -6,12 +6,12 @@ RUN apt-get update && apt-get install -y libmcrypt-dev \
     && docker-php-ext-enable imagick \
     && docker-php-ext-install mcrypt pdo_mysql
 
-# WORKDIR /var/www
+WORKDIR /var/www
 
-# RUN rm -rf /var/www/html
-# RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-# RUN ln -s public html
+RUN rm -rf /var/www/html
+RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN ln -s public html
 
-# EXPOSE 9000
+EXPOSE 9000
 
-# ENTRYPOINT ["php-fpm"]
+ENTRYPOINT ["php-fpm"]
